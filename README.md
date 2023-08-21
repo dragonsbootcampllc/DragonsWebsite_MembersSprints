@@ -1,6 +1,14 @@
-# FrontEnd Sprint (2 WEEKS)
+# FrontEnd Sprints
+## sprint 1
+### contributors
+- [empeo](https://github.com/empeo)
+- [rahma-mohamed](https://github.com/rahma-mohamed)
+- [AdhamMhran](https://github.com/AdhamMhran)
+- [AhmedhusseinENG](https://github.com/AhmedhusseinENG)
+- [DarkCode662432](https://github.com/DarkCode662432)
+- [Mohamed Ali](https://github.com/devbn3li)
 ### MVP after 4 days
-### mile stones
+### milestones
 ## What do we want to do?
 - single page @dragons.divzoon.com/event
 - 2 Sections 
