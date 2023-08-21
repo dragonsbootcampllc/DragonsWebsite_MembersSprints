@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend:
+        {
+          colors: {
+            "main-color": "#030014",
+            "sec-main-color": "#0B081B",
+            "red-color": "#B11C1C",
+            "yellow-color": "#FACC15",
+            "white-color": "#FEFEFF"
+          },
+          fontSize: {
+            xs: "10px"
+          },
+          screens: {
+            "semilarge" : "1275px",
+            "md2" : "1110px",
+            "semimeduim" : "566px"
+          }
+        }
+      }
+    }
+  </script>
+  <title>hero</title>
+
+</head>
+
+<body>
+  <section class="bg-main-color h-[35rem] w-screen overflow-hidden flex px-12 gap-[5rem]">
+    <div class="left w-full h-full pt-[150px] flex flex-col items-center
+                md2:w-[50%] md2:inline-block">
+      <h1 class="text-[2.5rem] font-bold text-white-color leading-[2.5rem] text-center
+                 semimeduim:text-[4rem] semimeduim:leading-[4rem] semimeduim:text-[4rem] 
+                 md2:max-w-[30rem] md2:text-left">Dragons events webasite ...</h1>
+      <p class="text-gray-600 mt-10 max-w-[40rem] text-[0.75rem] text-center
+                md2:max-w-[30rem] md2:text-[1rem] md2:text-left">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam nisi, architecto
+        ipsam fugiat, voluptatibus, eaque rem tenetur dicta ipsa possimus repellendus voluptatum sequi incidunt et
+        distinctio officiis ratione commodi aspernatur?</p>
+      <button class="bg-red-color p-3 btn rounded-[1rem] font-semibold text-white-color mt-10 opacity-[.9] transition-all w-full
+                     hover:opacity-[1]
+                     md2:w-fit">Contact Us</button>
+    </div>
+    <div class="right w-[50%] h-full overflow-hidden hidden gap-5 justify-center 
+                md2:flex 
+                semilarge:gap-0 semilarge:justify-between">
+      <div class="right flex flex-col h-fit -translate-y-10">
+        <div class="w-[180px] aspect-[22/30] bg-red-200 rounded-[1.5rem]">
+          <p class="p-5 font-semibold">sit am consectetur</p>
+        </div>
+        <div class="w-[180px] aspect-[22/30] bg-white-color rounded-[1.5rem] overflow-hidden"><img src="./hero2.jpg"
+            alt="hero1" class="min-h-full min-w-full "></div>
+        <div class="w-[180px] aspect-[22/30] bg-blue-500 rounded-[1.5rem]">
+          <p class="p-5 font-semibold">Lorem ipsum dolor </p>
+        </div>
+      </div>
+      <div class="meddile flex flex-col h-fit -translate-y-[10rem]">
+        <div class="w-[180px] aspect-[22/30] bg-red-200 rounded-[1.5rem]">
+          <p class="p-5 font-semibold">ipsum dolor sit</p>
+        </div>
+        <div class="w-[180px] aspect-[22/30] bg-green-500 rounded-[1.5rem]">
+          <p class="p-5 font-semibold">sitam con sectetur</p>
+        </div>
+        <div class="w-[180px] aspect-[22/30] bg-white-color rounded-[1.5rem] overflow-hidden"><img src="./hero1.jpg"
+            alt="hero1" class="min-h-full min-w-full"></div>
+      </div>
+      <div class="left flex flex-col h-fit -translate-y-12 hidden 
+                  semilarge:inline-block">
+        <div class="w-[180px] aspect-[22/30] bg-white-color rounded-[1.5rem] overflow-hidden"><img src="./hero3.jpg"
+            alt="hero1" class="min-h-full min-w-full"></div>
+        <div class="w-[180px] aspect-[22/30] bg-blue-200 rounded-[1.5rem]">
+          <p class="p-5 font-semibold">Lorem ipsum am consectetur</p>
+        </div>
+        <div class="w-[180px] aspect-[22/30] bg-red-500 rounded-[1.5rem]">
+          <p class="p-5 font-semibold">Lorem am consectetur</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
