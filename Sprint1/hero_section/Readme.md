@@ -5,4 +5,4 @@
 * [Tailwind Css Docs](https://tailwindcss.com/docs/) helped me to write with tailwind css
 * [Unsplash](https://unsplash.com/s/photos/people) helped me to get img for poeples
 
-# Devoloped by [***@DarkCode662432***](https://github.com/DarkCode662432/DarkCode662432) 😊
+# Devoloped by [***@DarkCode662432***](https://github.com/DarkCode662432/) 😊
