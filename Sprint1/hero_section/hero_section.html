@@ -1,9 +1,11 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- import tailwind css files -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -24,16 +26,63 @@
             "semilarge" : "1275px",
             "md2" : "1110px",
             "semimeduim" : "566px"
+          },
+          boxShadow: {
+            'light': '0 0px 6px 0px rgb(255 255 255 / 0.1), 0 0px 4px -1px rgb(255 255 255 / 0.1)'
+          },
+          dropShadow: {
+            'light': [
+                '0 0px 6px rgb(255 255 255 / 0.1)',
+                '0 0px 4px rgb(255 255 255 / 0.1)'
+            ]
           }
-        }
+        } 
       }
     }
   </script>
-  <title>hero</title>
 
+  <!-- import font icon files -->
+  <link rel="stylesheet" href="style.css">
+  <title>hero</title>
 </head>
 
-<body>
+<body class="min-h-[400vh]">
+  <nav class="backdrop-blur-lg bg-main-color/90 w-[96%] rounded-b-[2rem] fixed left-[50%] -translate-x-[50%] z-50 flex flex-col">
+    <div class="header flex justify-between bg-sec-main-color/70">
+      <div class="contact flex divide-x divide-slate-700 py-2">
+        <span class="phone px-5 flex items-center text-yellow-color text-xs flex-col
+                    md2:text-sm md2:flex-row"><span><span class="icon-call pt-2 pr-2"></span>phone number:</span><a href="tel:+201023456789" class="text-white-color"> +20 1023456789</a></span>
+        <span class="mail px-5 flex items-center text-red-color text-xs flex-col
+                    md2:text-sm md2:flex-row"><span><span class="icon-envelope pr-2"></span>Gmail:</span><a href="mailto:example@gmail.com" class="text-white-color"> example@gmail.com</a></span>
+      </div>
+      <div class="hidden
+                  sm:inline-block">
+        <button class="search text-white-color px-3 bg-slate-700 h-full rounded-s-lg transition-all opacity-[.9]
+                       hover:opacity-[1] hover:shadow-light"><span class="text-[.8rem] icon-search"></span></button>
+      </div>
+    </div>
+    <div class="p-5 flex justify-between items-center">
+      <div class="flex items-center gap-5">
+        <div class="max-w-[10rem]">
+          <img src="./logo-dcl-white.png" alt="logo-dcl" class="max-w-full max-h-full">
+        </div>
+        <ul class="text-white-color divide-x divide-slate-700 hidden
+                   md2:flex">
+          <li class="px-5 transition-all
+                     hover:drop-shadow-light hover:text-yellow-color"><a href="#home">home</a></li>
+          <li class="px-5 transition-all
+                     hover:drop-shadow-light hover:text-yellow-color"><a href="#home">cards</a></li>
+          <li class="px-5 transition-all
+                     hover:drop-shadow-light hover:text-yellow-color"><a href="#home">design</a></li>
+        </ul>
+      </div>
+      <div>
+        <button class="flex items-center gap-4 text-white-color transition-all
+                       hover:drop-shadow-light hover:text-yellow-color 
+                       md2:hidden"><div class="menu w-4 flex flex-col gap-1 pt-1"><span class="h-[2px] rounded-lg bg-white-color"></span><span class="w-full h-[2px] rounded-lg bg-white-color"></span></div> menu</button>
+      </div>
+    </div>
+  </nav>
   <section class="bg-main-color h-[35rem] w-screen overflow-hidden flex px-12 gap-[5rem]">
     <div class="left w-full h-full pt-[150px] flex flex-col items-center
                 md2:w-[50%] md2:inline-block">
@@ -45,7 +94,7 @@
         ipsam fugiat, voluptatibus, eaque rem tenetur dicta ipsa possimus repellendus voluptatum sequi incidunt et
         distinctio officiis ratione commodi aspernatur?</p>
       <button class="bg-red-color p-3 btn rounded-[1rem] font-semibold text-white-color mt-10 opacity-[.9] transition-all w-full
-                     hover:opacity-[1]
+                     hover:opacity-[1] hover:shadow-light
                      md2:w-fit">Contact Us</button>
     </div>
     <div class="right w-[50%] h-full overflow-hidden hidden gap-5 justify-center 
