@@ -5,6 +5,73 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- javascript files -->
+  <!-- timer -->
+  <script defer>
+    var event_day = {
+      year: 2023,
+      mounth: 8,
+      day: 24,
+      hour: 6,
+      minute: 0,
+      second: 0
+    }
+
+    var mounths = {"1": 0}
+    mounths["2"] = mounths["1"]+31;
+    mounths["3"] = mounths["2"]+28;
+    mounths["4"] = mounths["3"]+31;
+    mounths["5"] = mounths["4"]+30;
+    mounths["6"] = mounths["5"]+31;
+    mounths["7"] = mounths["6"]+30;
+    mounths["8"] = mounths["7"]+31;
+    mounths["9"] = mounths["8"]+31;
+    mounths["10"] = mounths["9"]+30;
+    mounths["11"] = mounths["10"]+31;
+    mounths["12"] = mounths["11"]+30;
+    // target date ==================
+    const date = new Date();
+    date.setFullYear(event_day.year);
+    date.setMonth(event_day.mounth);
+    date.setDate(event_day.day);
+    date.setHours(event_day.hour);
+    date.setMinutes(event_day.minute);
+    date.setSeconds(event_day.second);
+    var target_days = date.getDay() + mounths[date.getMonth()] + date.getFullYear()*365.25;
+    var target_hours = date.getHours() + target_days*24;
+    var target_minutes = date.getMinutes() + target_hours*60;
+    var target_seconds = date.getSeconds() + target_minutes*60;
+    
+    setInterval(()=>{
+      // current date =================
+      const current_date = new Date();
+      var current_days = current_date.getDay() + mounths[current_date.getMonth()] + current_date.getFullYear()*365.25;
+      var current_hours = current_date.getHours() + current_days*24;
+      var current_minutes = current_date.getMinutes() + current_hours*60;
+      var current_seconds = current_date.getSeconds() + current_minutes*60;
+      console.log();
+      
+      // difference time ==============
+      var sec_span, min_span, hour_span, day_span, secs, mins, hours, days;
+      sec_span = document.getElementById("seconds");
+      min_span = document.getElementById("minutes");
+      hour_span = document.getElementById("hours");
+      day_span = document.getElementById("days");
+  
+      days = (target_days - current_days);
+      hours = (target_hours - current_hours)%24;
+      mins = (target_minutes - current_minutes)%60;
+      secs = (target_seconds - current_seconds)%60;
+      sec_span.innerText = (secs>=0)?secs:0;
+      min_span.innerText = (mins>=0)?mins:0;
+      hour_span.innerText = (hours>=0)?hours:0;
+      day_span.innerText = (days>=0)?days:0;
+    }, 1000);
+  </script>
+  
+  <!-- queue data structure -->
+  <script src="./queue datastructer.js" defer></script>
+
   <!-- import tailwind css files -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -42,12 +109,12 @@
   </script>
 
   <!-- import font icon files -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css">
   <title>hero</title>
 </head>
 
-<body class="min-h-[400vh]">
-  <nav class="backdrop-blur-lg bg-main-color/90 w-[96%] rounded-b-[2rem] fixed left-[50%] -translate-x-[50%] z-50 flex flex-col">
+<body class="min-h-[400vh] flex flex-col items-center">
+  <nav class="backdrop-blur-lg bg-main-color/90 w-[96%] rounded-b-[2rem] fixed left-[50%] -translate-x-[50%] z-50 flex flex-col max-w-[1344px]">
     <div class="header flex justify-between bg-sec-main-color/70">
       <div class="contact flex divide-x divide-slate-700 py-2">
         <span class="phone px-5 flex items-center text-yellow-color text-xs flex-col
@@ -63,7 +130,7 @@
     </div>
     <div class="p-5 flex justify-between items-center">
       <div class="flex items-center gap-5">
-        <div class="max-w-[10rem]">
+        <div class="max-w-[6rem] sm:max-w-[10rem]">
           <img src="./logo-dcl-white.png" alt="logo-dcl" class="max-w-full max-h-full">
         </div>
         <ul class="text-white-color divide-x divide-slate-700 hidden
@@ -84,12 +151,20 @@
     </div>
   </nav>
   <section class="bg-main-color w-screen overflow-hidden flex flex-col
-                  md2:flex-row md2:h-[35rem] md2:gap-[5rem] md2:px-12">
+                  md2:flex-row md2:h-[35rem] md2:gap-[5rem] md2:px-12 max-w-[1440px]">
     <div class="left w-full h-full pt-[150px] flex flex-col items-center px-12
                 md2:w-[50%] md2:inline-block md2:px-0">
-      <h1 class="text-[2.5rem] font-bold text-white-color leading-[2.5rem] text-center
-                 semimeduim:text-[4rem] semimeduim:leading-[4rem] semimeduim:text-[4rem] 
-                 md2:max-w-[30rem] md2:text-left">Dragons events webasite ...</h1>
+      <h1 class="text-[2rem] font-bold text-white-color leading-[3.5rem] text-center
+                 semimeduim:leading-[5rem] semimeduim:text-[3.5rem] 
+                 md2:max-w-[30rem]">Next Event
+        <span class="drop-shadow-light flex text-[1.5rem] leading-[1.5rem] gap-5
+                     semimeduim:leading-[3rem] semimeduim:text-[3rem]">
+          <span class="flex flex-col text-center text-yellow-color"><span id="days">--</span><span class="text-red-color text-[0.75rem] semilarge:text-[1.75rem]">days</span></span>
+          :<span class="flex flex-col text-center text-yellow-color"><span id="hours">--</span><span class="text-red-color text-[0.75rem] semilarge:text-[1.75rem]">hours</span></span>
+          :<span class="flex flex-col text-center text-yellow-color"><span id="minutes">--</span><span class="text-red-color text-[0.75rem] semilarge:text-[1.75rem]">minutes</span></span>
+          :<span class="flex flex-col text-center text-yellow-color"><span id="seconds">--</span><span class="text-red-color text-[0.75rem] semilarge:text-[1.75rem]">seconds</span></span>
+        </span>
+      </h1>
       <p class="text-gray-600 mt-10 max-w-[40rem] text-[0.75rem] text-center
                 md2:max-w-[30rem] md2:text-[1rem] md2:text-left">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam nisi, architecto
         ipsam fugiat, voluptatibus, eaque rem tenetur dicta ipsa possimus repellendus voluptatum sequi incidunt et
@@ -134,12 +209,12 @@
       </div>
     </div>
     <div class="bottom w-full h-fit overflow-hidden flex no-wrap items-center my-12 gap-1
-                md2:hidden">
+                md2:hidden" id="bottomCardsSection">
       <div class="w-[130px] aspect-[22/30] bg-red-200 rounded-[1.5rem] shrink-0">
         <p class="p-5 font-semibold">sit am consectetur</p>
       </div>
       <div class="w-[130px] aspect-[22/30] bg-white-color rounded-[1.5rem] overflow-hidden shrink-0">
-        <img src="./hero2.jpg" alt="hero1" class="min-h-full min-w-full ">
+        <img src="./hero2.jpg" alt="hero" class="min-h-full min-w-full ">
       </div>
       <div class="w-[130px] aspect-[22/30] bg-blue-500 rounded-[1.5rem] shrink-0">
         <p class="p-5 font-semibold">Lorem ipsum dolor </p>
@@ -151,12 +226,10 @@
         <p class="p-5 font-semibold">sitam con sectetur</p>
       </div>
       <div class="w-[130px] aspect-[22/30] bg-white-color rounded-[1.5rem] overflow-hidden shrink-0">
-        <img src="./hero1.jpg"
-          alt="hero1" class="min-h-full min-w-full">
+        <img src="./hero1.jpg" alt="hero" class="min-h-full min-w-full">
       </div>
       <div class="w-[130px] aspect-[22/30] bg-white-color rounded-[1.5rem] overflow-hidden shrink-0">
-        <img src="./hero3.jpg"
-          alt="hero1" class="min-h-full min-w-full">
+        <img src="./hero3.jpg" alt="hero" class="min-h-full min-w-full">
       </div>
       <div class="w-[130px] aspect-[22/30] bg-blue-200 rounded-[1.5rem] shrink-0">
         <p class="p-5 font-semibold">Lorem ipsum am consectetur</p>
