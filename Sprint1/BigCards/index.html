@@ -1,1 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>small cards</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      *{
+    font-family: 'League Spartan', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Work Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+html{
+    font-size: 62.5%;
+  
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+}
+body{
+    background-color:#020015;
+    padding: 2rem 9%;
+}
+      @media (max-width:991px) {
+    html{
+        font-size: 55%;
+    }
+    .header{
+        padding: 2rem;
+        
+    }
+    
+    section{
+        padding: 2rem;
+    }
+}
+@media (max-width:768px) {
+    #menu-btn{
+        display: none;
+    }
+}
+      @media (max-width:445px) {
+    html{
+        font-size: 40%;
+    }
+    .logo{
+        width: 100%;
+        font-size: 5px;
+        
+    }
+    .header{
+        padding: 2rem;
+    }
+    .justify-between{
+        display: grid;
+        line-height: 2rem;
+    }
+}
 
+@media (max-width:280px) {
+    html{
+        font-size: 40%;
+    }
+    .header .logo{
+        width: 100%;
+        font-size: 5px;
+        
+    }
+    .header{
+        padding: 2rem;
+    }
+    .justify-between{
+        display:block;
+        text-align: justify;
+        padding: 5px;
+        line-height: 2rem;
+        
+    }
+    .medi{
+      margin-top: 5px;
+      margin-bottom: 8px;
+    }
+    .btn{
+        width: 40%;
+        padding: 5px;
+       
+    }
+    .section{
+        padding: 0;
+    }
+.features .box-contaner .box{
+    margin: 0;
+}
+}
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body >
+      <section class="features bg-indigo-950 rounded-3xl p-8">
+                <header class="header z-50 flex items-center justify-between py-8 px-9 border-b-black">
+                    <a href="#" class="logo text-4xl font-bold text-white "><i class="fa-solid fa-circle p-1 text-violet-800 "></i>sous les projecteurs</a>
+                    <div class="icons flex" id="menu-btn">
+                        <div class="right p-4 rounded-3xl leading-20 bg-black text-white text-center text-3xl " >voir tout</div>
+                        <div class="flex" ><i class="fa-sharp fa-solid fa-right-long   justify-center items-center w-20 h-20 leading-10 rounded-full bg-black text-white text-4xl mr-1 text-center "></i></div>
+                    </div>
+                </header>
+           
+                <div class="box-contaner grid gap-6 mt-30" style="grid-template-columns: repeat(auto-fit, minmax(30rem ,1fr));">
+                    <div class="box px-12 py-8 bg-violet-800 outline-black outline-offset-[-1px] text-center rounded-2xl shadow-black">
+                        <div class="container relative">
+                            <img src="./03f196a1-772a-4e54-a7ad-20aedf2c0b95.png" class="my-4 mx-0 h-60 object-cover" alt="Notebook" style="width:100%;">
+                            <div class="content absolute bottom-0 bg-black bg-opacity-50 text-white w-full h-4/6">
+                              <h1 class="text-4xl text-white lin leading-7">Heading</h1>
+                              <p class="text-2xl text-white leading-7">Lorem ipsum..</p>
+                            </div>
+                          </div>
+                          <div class="flex justify-between">
+                            <div class=" grid">
+                                <p class="font-bold text-white">9 sept. 2022-8 jan.2023</p>
+                                <div class="flex medi">
+                                    <i class="fa-solid fa-location-dot text-white"></i>
+                                    <p class="font-bold ml-1 text-white">location</p>
+                                </div>
+                            </div>
+                            <a href="#" class="py-3 px-12 text-2xl rounded-3xl text-white bg-slate-950 cursor-pointer"> Book a ticket</a>
+                          </div>
+                    </div>
+                    <div class="box px-12 py-8 bg-violet-800 outline-black outline-offset-[-1px] text-center rounded-2xl shadow-black">
+                      <div class="container relative">
+                          <img src="./03f196a1-772a-4e54-a7ad-20aedf2c0b95.png" class="my-4 mx-0 h-60 object-cover" alt="Notebook" style="width:100%;">
+                          <div class="content absolute bottom-0 bg-black bg-opacity-50 text-white w-full h-4/6">
+                            <h1 class="text-4xl text-white lin leading-7">Heading</h1>
+                            <p class="text-2xl text-white leading-7">Lorem ipsum..</p>
+                          </div>
+                        </div>
+                        <div class="flex justify-between">
+                          <div class=" grid">
+                              <p class="font-bold text-white">9 sept. 2022-8 jan.2023</p>
+                              <div class="flex medi">
+                                  <i class="fa-solid fa-location-dot text-white"></i>
+                                  <p class="font-bold ml-1 text-white">location</p>
+                              </div>
+                          </div>
+                          <a href="#" class="py-3 px-12 text-2xl rounded-3xl text-white bg-slate-950 cursor-pointer"> Book a ticket</a>
+                        </div>
+                  </div>
+                  <div class="box px-12 py-8 bg-violet-800 outline-black outline-offset-[-1px] text-center rounded-2xl shadow-black">
+                    <div class="container relative">
+                        <img src="./03f196a1-772a-4e54-a7ad-20aedf2c0b95.png" class="my-4 mx-0 h-60 object-cover" alt="Notebook" style="width:100%;">
+                        <div class="content absolute bottom-0 bg-black bg-opacity-50 text-white w-full h-4/6">
+                          <h1 class="text-4xl text-white lin leading-7">Heading</h1>
+                          <p class="text-2xl text-white leading-7">Lorem ipsum..</p>
+                        </div>
+                      </div>
+                      <div class="flex justify-between">
+                        <div class=" grid">
+                            <p class="font-bold text-white">9 sept. 2022-8 jan.2023</p>
+                            <div class="flex medi">
+                                <i class="fa-solid fa-location-dot text-white"></i>
+                                <p class="font-bold ml-1 text-white">location</p>
+                            </div>
+                        </div>
+                        <a href="#" class="py-3 px-12 text-2xl rounded-3xl text-white bg-slate-950 cursor-pointer"> Book a ticket</a>
+                      </div>
+                </div>
+                </div>
+            <!-- </div> -->
+            
+    </section>
+
+</body>
+</html>
