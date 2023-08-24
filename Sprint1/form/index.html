@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+     
+    </style>
+</head>
+
+<body>
+    <section class="bg-gray-50 dark:bg-gray-900">
+        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+            <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+
+            </a>
+            <div
+                class="w-full bg-white rounded-lg bg-gray-900 shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 drop-shadow-md ">
+                <div class="px-6 space-y-4 md:space-y-6 sm:p-8 drop-shadow-2xl">
+     
+                    <form>
+                        <div class="relative z-0 w-full mb-10 group">
+                            <input type="text" name="floating_email" id="floating_email"
+                                class="block py-2.5 px-0 w-full text-sm text-gray-900  h-10 min-h-0 mx:min-h-2 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                placeholder=" " required />
+                            <label for="Name"
+                                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Full
+                                Name
+                            </label>
+                        </div>
+                        <div class="relative z-0 w-full mb-10 group">
+                            <input type="email" name="floating_email" id="floating_email"
+                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                placeholder=" " required />
+                            <label for="floating_email"
+                                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer- peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 placeholder="
+                                name@company.com""> Email address
+                            </label>
+                        </div>
+
+                        <div class="relative z-0 w-full mb-6 group"  >
+                            <input type="text" onkeypress="isInputNumber(event)"
+                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                placeholder=" " required />
+                            <label for="floating_email bg-blue-600"
+                                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ">Phone
+                                Number
+                            </label>
+                        </div>
+
+
+                      <div class="grid md:grid-cols-2 md:gap-6">
+                      <div class="relative z-0 w-full mb-6 group">
+                                <input type="text" " name=" floating_phone" id="floating_phone"
+                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                    placeholder=" " required />
+                                <label for="floating_phone"
+                                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Link
+                                In</label>
+                            </div>
+                            <div class="relative z-0 w-full mb-6 group">
+                                <input type="text" name="floating_company" id="floating_company"
+                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                    placeholder=" " required />
+                                <label for="floating_company"
+                                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Git
+                                    Hub
+                                </label>
+                            </div>
+                        </div>
+                        <fieldset class="flex flex-nowrap ml-2">
+                            <legend class="sr-only re
+                            lative z-0 w-full mb-6 group ms-8  ">Countries</legend>
+
+
+
+                            <div class="flex items-center mb-4 ml-2">
+                                <input id="country-option-2" type="radio" name="countries" value="Germany"
+                                    class="w-4 h-4 border-gray-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="country-option-2"
+                                    class="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                    Front End
+                                </label>
+                            </div>
+                            <div class="flex items-center mb-4 ml-8">
+                                <input id="country-option-2" type="radio" name="countries" value="Germany"
+                                    class="w-4 h-4 border-gray-300  dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="country-option-2"
+                                    class="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                    Back End
+                                </label>
+                            </div>
+                            <div class="flex items-center mb-4 ml-10">
+                                <input id="country-option-2" type="radio" name="countries" value="Germany"
+                                    class="w-4 h-4 border-gray-300  dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="country-option-2"
+                                    class="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                    Ful Stack
+                                </label>
+                            </div>
+                        </fieldset>
+                        <button type="submit"
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+    function isInputNumber(evt){
+                
+                var ch = String.fromCharCode(evt.which);
+                
+                if(!(/[0-9]/.test(ch))){
+                    evt.preventDefault();
+                }
+                
+            }
+</script>
+<script src="js.js"></script>
+
+</html>
