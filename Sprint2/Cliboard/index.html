@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://dragons.divzoon.com/Identity/Images/2023/SVG/LLogo.svg" type="image/x-icon">
+    <title>Cliboard</title>
+    <link rel="stylesheet" href="dist/output.css">
+    <style>
+        .visible{
+            animation: animate 1s;
+        }
+        @keyframes animate {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+        .invisible{
+            animation: animate1 1s;
+        }
+        @keyframes animate1 {
+            0%{
+                opacity: 1;
+            }
+            100%{
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#030014] flex justify-center items-center h-screen">
+    <p class="message_cliboard absolute top-0 left-0 right-0 text-[#e2b4ff] text-[1.1rem] duration-[1s] text-center rounded-b-sm capitalize p-3 rounded-md bg-[#170d2c] invisible ">the link copied</p>
+    <div class="cliboard_container text-center"><button class="capitalize p-2 rounded-md bg-[#170d2c] duration-[0.5s] hover:border-t-[#fffbeb] border-t-[2px] border-t-[solid] border-t-[#8e61be] text-[#fffbeb] text-[1.15rem]">copy link</button></div>
+
+<script src="src/dynamic.js"></script>
+</body>
+</html>
