@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.10.111/pdf.min.js"
+            integrity="sha512-hoZmP5l0sJQzHzkXQS3ZCj/H7bOn8JKmbHd/s2trPUoMcvPaBfLSE9/92cpwYzcXBaEtVT/aCQ9P97rkTSWqcw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+
+        <title>Slides Download Button</title>
+    </head>
+    <body class="min-h-screen bg-slate-300 flex items-center justify-center">
+        <div class="w-80 bg-white rounded-xl">
+            <div
+                class="w-full h-full text-center py-4 px-6 text-white rounded-xl shadow-md"
+                style="background-color: #030014"
+            >
+                <h2 class="text-xl font-bold">Download the slides</h2>
+                <h3 class="text-base mb-3">Slides Heading</h3>
+
+                <canvas
+                    id="my-canvas"
+                    class="border-2 border-black w-full mb-6"
+                    style="border-color: #facc15"
+                ></canvas>
+
+                <a
+                    href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf"
+                    download
+                    target="_blank"
+                    rel="noreferrer"
+                    class="block w-full bg-black py-2 px-4 rounded-xl text-center font-bold"
+                    style="color: #facc15; border: 1px solid #facc15"
+                    >Download</a
+                >
+            </div>
+        </div>
+
+        <script>
+            var canvas = document.getElementById("my-canvas");
+            var context = canvas.getContext("2d");
+            canvas.textContent =
+                "This text is displayed if your browser does not support HTML5 Canvas.";
+
+            context.font = "48px serif";
+            context.fillStyle = "#FACC15";
+            context.fillText("Loading...", 50, 100);
+
+            pdfjsLib.GlobalWorkerOptions.workerSrc =
+                "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.10.111/pdf.worker.min.js";
+
+            var loadingTask = pdfjsLib.getDocument(
+                "https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf"
+            );
+
+            loadingTask.promise.then(
+                function (pdf) {
+                    var pageNumber = 1;
+                    pdf.getPage(pageNumber).then(function (page) {
+                        var scale = 1;
+                        var viewport = page.getViewport({ scale: scale });
+                        canvas.height = viewport.height;
+                        canvas.width = viewport.width;
+
+                        var renderContext = {
+                            canvasContext: context,
+                            viewport: viewport,
+                        };
+                        var renderTask = page.render(renderContext);
+                    });
+                },
+                function (reason) {
+                    console.error(reason);
+                }
+            );
+        </script>
+    </body>
+</html>
