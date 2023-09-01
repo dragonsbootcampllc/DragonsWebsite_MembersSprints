@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Screen and Audio Recorder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <video controls id="videoElement"></video>
+    <button id="startRecordButton" class="m-2 rounded-xl bg-lime-400 p-2">Start Recording</button>
+    <button id="stopRecordButton" disabled class="m-2 rounded-xl bg-red-600 p-2 text-white">Stop Recording</button>
+    <!-- Button to start sharing -->
+    <button id="startButton" class="m-2 rounded-xl bg-lime-400 p-2">Start Sharing</button>
+    <!-- Button to stop sharing -->
+    <button id="stopButton" class="m-2 rounded-xl bg-red-600 text-white p-2">Stop Sharing</button>
+    
+    <script>
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+    
+        
+        startButton.addEventListener('click', async () => {
+            try {
+                screenStream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+                const videoElement = document.createElement('video');
+                videoElement.srcObject = screenStream;
+                videoElement.autoplay = true;
+                document.body.appendChild(videoElement);
+                
+                // Hide the start button and show the stop button
+                startButton.style.display = 'none';
+                stopButton.style.display = 'inline-block';
+            } catch (error) {
+                console.error('Error accessing screen:', error);
+            }
+        });
+        
+        stopButton.addEventListener('click', () => {
+            if (screenStream) {
+                const tracks = screenStream.getTracks();
+                tracks.forEach(track => track.stop());
+                screenStream = null;
+                
+                // Hide the stop button and show the start button
+                startButton.style.display = 'inline-block';
+                stopButton.style.display = 'none';
+                
+                // Remove the video element
+                const videoElement = document.querySelector('video');
+                if (videoElement) {
+                    videoElement.remove();
+                }
+            }
+        });
+    </script>
+
+    <script>
+        const video = document.querySelector('#videoElement');
+        const startRecordButton = document.querySelector('#startRecordButton');
+        const stopRecordButton = document.querySelector('#stopRecordButton');
+        const startShareScreenButton = document.querySelector('#startShareScreenButton');
+        const stopShareScreenButton = document.querySelector('#stopShareScreenButton');
+
+        let screenStream;
+        let audioStream;
+        let recorder;
+      
+        
+
+        async function startRecording() {
+            try {
+                screenStream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+                audioStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                const combinedStream = new MediaStream([...screenStream.getTracks(), ...audioStream.getTracks()]);
+                video.srcObject = combinedStream;
+
+                recorder = new MediaRecorder(combinedStream);
+                const recordedChunks = [];
+
+                recorder.ondataavailable = event => {
+                    if (event.data.size > 0) {
+                        recordedChunks.push(event.data);
+                    }
+                };
+
+                recorder.onstop = async () => {
+                    const blob = new Blob(recordedChunks, { type: 'video/webm' });
+                    const url = window.URL.createObjectURL(blob);
+                    video.src = url;
+
+                    // Prompt the user to choose where to save the recording file.
+                    const suggestedName = "screen-audio-recording.webm";
+                    const handle = await window.showSaveFilePicker({ suggestedName });
+                    const writable = await handle.createWritable();
+                    await writable.write(blob);
+                    await writable.close();
+
+                    stopRecordButton.disabled = true;
+                    startRecordButton.disabled = false;
+                    screenStream.getTracks().forEach(track => track.stop());
+                    audioStream.getTracks().forEach(track => track.stop());
+                    video.srcObject = null;
+
+                    console.log("Recording saved!");
+                };
+
+                recorder.start();
+                startRecordButton.disabled = true;
+                stopRecordButton.disabled = false;
+            } catch (error) {
+                console.error("Error starting recording:", error);
+            }
+        }
+
+        startRecordButton.addEventListener("click", startRecording);
+
+        stopRecordButton.addEventListener("click", () => {
+            recorder.stop();
+        });
+
+        startShareScreenButton.addEventListener("click", async () => {
+            try {
+                startRecording();
+                startShareScreenButton.disabled = true;
+                stopShareScreenButton.disabled = false;
+                console.log("Your screen is being shared.");
+            } catch (error) {
+                console.error("Error starting screen sharing:", error);
+            }
+        });
+
+        stopShareScreenButton.addEventListener("click", () => {
+            screenStream.getTracks().forEach(track => track.stop());
+            audioStream.getTracks().forEach(track => track.stop());
+            video.srcObject = null;
+
+            stopShareScreenButton.disabled = true;
+            startRecordButton.disabled = true;
+            stopRecordButton.disabled = true;
+            console.log("Your screen is not shared anymore.");
+        });
+
+
+       
+    </script>
+</body>
+</html>
