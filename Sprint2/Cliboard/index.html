@@ -1,40 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="https://dragons.divzoon.com/Identity/Images/2023/SVG/LLogo.svg" type="image/x-icon">
-    <title>Cliboard</title>
-    <link rel="stylesheet" href="dist/output.css">
-    <style>
-        .visible{
-            animation: animate 1s;
-        }
-        @keyframes animate {
-            0%{
-                opacity: 0;
-            }
-            100%{
-                opacity: 1;
-            }
-        }
-        .invisible{
-            animation: animate1 1s;
-        }
-        @keyframes animate1 {
-            0%{
-                opacity: 1;
-            }
-            100%{
-                opacity: 0;
-            }
-        }
-    </style>
+    <title>Special Offers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-[#030014] flex justify-center items-center h-screen">
-    <p class="message_cliboard absolute top-0 left-0 right-0 text-[#e2b4ff] text-[1.1rem] duration-[1s] text-center rounded-b-sm capitalize p-3 rounded-md bg-[#170d2c] invisible ">the link copied</p>
-    <div class="cliboard_container text-center"><button class="capitalize p-2 rounded-md bg-[#170d2c] duration-[0.5s] hover:border-t-[#fffbeb] border-t-[2px] border-t-[solid] border-t-[#8e61be] text-[#fffbeb] text-[1.15rem]">copy link</button></div>
+<body class="flex  p-8">
+    
+    <div class="offer grid m-2 bg-purple-800 rounded-xl p-8" id="offer1">
+        <h2 class="font-bold mb-2 text-white">twitter Company </h2>
+        <p class="text-white mb-2">Offer: <samp class="font-bold text-yellow-200">20% </samp> off on all products</p>
+        <!-- <button onclick="showDiscount('COMPANYA20')">Get Discount</button> -->
+        <a class="text-white  bg-purple-600 hover:bg-purple-950 p-2 rounded-lg" href="https://twitter.com/?lang=ar" target="_blank" onclick="showDiscount('COMPANYA20')">Get twitter Discount</a>
+        <p class="text-white" id="discount1"></p>
+    </div>
+    
+    <div class="offer grid m-2 bg-purple-800 rounded-xl p-8" id="offer2">
+        <h2 class="font-bold mb-2 text-white">facebook Company </h2>
+        <p  class="text-white mb-2">Offer: <samp class="font-bold text-yellow-200">$10 </samp>   off on your first purchase</p>
+        <!-- <button onclick="showDiscount('COMPANYB10')">Get Discount</button> -->
+        <a class="text-white  bg-purple-600 hover:bg-purple-950 p-2 rounded-lg" href="https://www.facebook.com/" target="_blank" onclick="showDiscount('COMPANYB10')"> Get facebook Discount</a>
+        <p class="text-white" id="discount2"></p>
+    </div>
 
-<script src="src/dynamic.js"></script>
+    <div class="offer grid m-2 bg-purple-800 rounded-xl p-8" id="offer3">
+        <h2 class="font-bold mb-2 text-white">google Company </h2>
+        <p class="text-white mb-2">Offer: Buy one,<samp class="font-bold text-yellow-200">get one free</samp> </p>
+        <!-- <button onclick="showDiscount('COMPANYCBOGO')">Get Discount</button> -->
+        <a class="text-white  bg-purple-600 hover:bg-purple-950 p-2 rounded-lg" href="https://www.google.com/?&bih=600&biw=1349&hl=ar" target="_blank" onclick="showDiscount('COMPANYCBOGO')">Get google Discount</a>
+        <p class="text-white" id="discount3"></p>
+    </div>
+
+    <script>
+        function showDiscount(discountCode) {
+            const offerId = event.target.parentElement.id;
+            const discountElement = document.getElementById(`discount${offerId.slice(-1)}`);
+            discountElement.textContent = `Discount Code: ${discountCode}`;
+        }
+    </script>
 </body>
 </html>
