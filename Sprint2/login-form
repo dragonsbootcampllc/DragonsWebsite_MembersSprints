@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="contactform p-8 w-2/6">
+        <form action="">
+            <h2 class="font-bold from-neutral-700 text-2xl">Enter your data</h2>
+            <div class="inboutbox relative w-full mt-2">
+                <span class=" p-1 m-2 pointer-events-none ease-in duration-300">Full Name</span>
+                <input class="w-full p-1 m-2 border-b border-neutral-700 " type="text" name="" required="required">
+                
+            </div>
+            <div class="inboutbox w-full mt-2">
+                <span class=" p-1 m-2 pointer-events-none ease-in duration-300">Email Address </span>
+                <input class="w-full p-1 m-2 border-b border-neutral-700" type="email" name="" required="required">
+               
+            </div>
+            <div class="inboutbox w-full mt-2">
+                <span class=" p-1 m-2 pointer-events-none ease-in duration-300">Type Your Phone Number</span>
+                <input class="w-full p-1 m-2 border-b border-neutral-700" type="number" name="" required="required">
+                
+            </div>
+            <div class="inboutbox w-full mt-2">
+                <input class="bg-purple-900 text-white border-none cursor-pointer p-2 font-bold " type="submit" name="" value="LOGIN">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
