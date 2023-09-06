@@ -1,0 +1,50 @@
+.container_cubic {
+    perspective: 1000px;
+}
+.container_cubic::before {
+    content: "";
+    box-shadow: 0 0 10px #e2b4ff;
+    background-image: url("../image/test.svg");
+}
+.cubic {
+    transform-style: preserve-3d;
+    animation: cubice 10s infinite linear;
+}
+.top {
+    transform: rotateX(90deg) translateZ(100px);
+    box-shadow: 0 5px 10px #e2b4ff;
+}
+.bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+    box-shadow: 0 5px 10px #e2b4ff;
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(100px);
+    box-shadow: 0 5px 10px #e2b4ff;
+}
+.left {
+    transform: rotateY(-90deg) translateZ(100px);
+    box-shadow: 0 5px 10px #e2b4ff;
+}
+.front {
+    transform: rotateX(0deg) translateZ(100px);
+    box-shadow: 0 5px 10px #e2b4ff;
+}
+.back {
+    transform: rotateX(-180deg) translateZ(100px);
+    box-shadow: 0 5px 10px #e2b4ff;
+}
+@keyframes cubice {
+    from {
+    transform: rotateX(0deg) rotateY(0deg);
+    }
+    to {
+    transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+.shadow_cubic {
+    transform: rotateX(-90deg) translateZ(100px);
+    box-shadow: 1rem 1rem 15rem #e2b4ff;
+}
